@@ -117,3 +117,44 @@ Add to Cart
     Sleep    1s
     Click Element    ${cartAdd}
 
+#6. Search "Odyssey OLED G8" and click into it and add it into the shopping cart (Roy)
+    #
+    #
+    #
+    #
+    #
+
+
+
+
+#7. Check if the product is in the shopping cart and make a screenshot of the cart icon (Catarina)
+    #
+    #
+    #
+    #
+
+
+
+
+
+
+#8. Click "SIIRRY KASSALLE", fill out the form and click "SEURAAVA>>" (Marika)
+    #
+    #
+    #
+    #
+
+
+
+#9. Choose "Nouto Turku" from the list and click "SEURAAVA>>"  (Marika)
+    #
+    #
+    #
+    #
+
+#10. Choose "Ennakkomaksu" and click "SEURAAVA>>", also verify the information we filled out in the form are correct (Edem)
+    #
+    #
+    #
+    #
+    
