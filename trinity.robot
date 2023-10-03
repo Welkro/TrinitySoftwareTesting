@@ -5,7 +5,7 @@
 *** Settings ***
 Library    SeleniumLibrary
 Library    String
-Library    XML
+
 
 *** Variables ***
 ${website}    http://jimms.fi
@@ -16,23 +16,32 @@ ${website}    http://jimms.fi
 *** Test Cases ***
 Open Webpage
     Open Browser    ${website}    Chrome    options=add_experimental_option("detach", True)
+    #Open Browser    ${website}    Firefox
 
     Maximize Browser Window
 
+    Reload Page
+
 *** Test Cases ***
+Landing Page
     # Do all product categories have a "landing page"
-    ${count}=    Get Element Count    xpath://html/body/header/div/div[1]/jim-drilldown-mega-menu/nav/ul/li[*]/a
+    # Get count of elements in the vertical path
+    ${count}=    Get Element Count    xpath:/html/body/header/div/div[1]/jim-drilldown-mega-menu/nav/ul/li[*]/a
 
-    ${referencePosition}=    Get Vertical Position    xpath://html/body/header/div/div[1]/jim-drilldown-mega-menu/nav/ul/li[1]/a
-
-    FOR    ${index}    IN RANGE    ${count}
+    # Iterate through all the elements
+    FOR    ${index}    IN RANGE    1    ${count}+1
         Log    ${index}
-        ${testPosition}=    Get Vertical Position    xpath//html/body/header/div/div[1]/jim-drilldown-mega-menu/nav/ul/li[${index}]/a
-
+        ${testElement}=    Set Variable    xpath:/html/body/header/div/div[1]/jim-drilldown-mega-menu/nav/ul/li[${index}]/a
+        Log    ${testElement}
+        ${text}=    Get Text    ${testElement}
+        Log    ${text}
         
+        # Check to make sure that each element has an 'href'
+        ${testAttributes}=    Get Element Attribute    ${testElement}    href
+        Run Keyword And Continue On Failure    Should Not Be Empty    ${testAttributes}
         
     END
-    
+
 
     # Test search feature from main page (search keyword is: ps5)
         # robot takes element screenshot from first product
