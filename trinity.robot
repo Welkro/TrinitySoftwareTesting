@@ -47,6 +47,5 @@ Landing Page
         # robot takes element screenshot from first product
         # robot drills down to product page
         # robot checks that there is something in product page what matches to keyword what was used in search
-
-
+        
     #
