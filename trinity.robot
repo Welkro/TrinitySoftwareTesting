@@ -11,6 +11,13 @@ Library    XML
 ${website}    http://jimms.fi
 
 
+*** Keywords ***
+Add to Cart
+    [Arguments]    ${cartAdd}
+    Sleep    1s
+    Run Keyword and Ignore Error    Scroll Element Into View    ${cartAdd}
+    Sleep    1s
+    Click Element    ${cartAdd}
 
 
 *** Test Cases ***
@@ -19,25 +26,20 @@ Open Webpage
 
     Maximize Browser Window
 
+
 *** Test Cases ***
-    # Do all product categories have a "landing page"
-    ${count}=    Get Element Count    xpath://html/body/header/div/div[1]/jim-drilldown-mega-menu/nav/ul/li[*]/a
+Test If Possible to Add Items to Cart
+    
+    Open Browser    ${website}    Chrome    options=add_experimental_option("detach", True)
 
-    ${referencePosition}=    Get Vertical Position    xpath://html/body/header/div/div[1]/jim-drilldown-mega-menu/nav/ul/li[1]/a
-
-    FOR    ${index}    IN RANGE    ${count}
-        Log    ${index}
-        ${testPosition}=    Get Vertical Position    xpath//html/body/header/div/div[1]/jim-drilldown-mega-menu/nav/ul/li[${index}]/a
-
-        
-        
-    END
+    #Add 5 items to cart
+    Add to Cart    xpath://*[@id="fp-suggestions-carousel1-slide02"]/div/product-box/div[2]/div[3]/addto-cart-wrapper/div/a
+    Add to Cart     xpath://*[@id="fp-suggestions-carousel2-slide05"]/div/product-box/div[2]/div[3]/addto-cart-wrapper/div/a
+    Add to Cart     xpath://*[@id="fp-suggestions-carousel2-slide03"]/div/product-box/div[2]/div[3]/addto-cart-wrapper/div/a
+    Add to Cart     xpath://*[@id="jim-main"]/div[7]/div/div/div[2]/div/div[1]/product-box/div[2]/div[3]/addto-cart-wrapper/div/a
+    Add to Cart     xpath://*[@id="jim-main"]/div[8]/div/div/div[2]/div/div[2]/product-box/div[2]/div[3]/addto-cart-wrapper/div/a
     
 
-    # Test search feature from main page (search keyword is: ps5)
-        # robot takes element screenshot from first product
-        # robot drills down to product page
-        # robot checks that there is something in product page what matches to keyword what was used in search
 
 
-    #
+    
