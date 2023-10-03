@@ -28,9 +28,11 @@ Search feature from main page
 
 # check that there is smething in product page what matches to keyword what was used in search
     Page Should Contain    ${searchElement}
-    
     Close Browser
-
 # End of Task 2 - Marika Duhhanina
 
+
+# # Task 8 - Marika Duhhanina
+# *** Test Cases ***
+# Click "SIIRRY KASSALLE", fill out the form and click "SEURAAVA>>"
 
