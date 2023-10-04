@@ -17,6 +17,15 @@ ${website}              http://jimms.fi
 ${browser}=             Firefox
 ${searchElement}=       PS5
 
+*** Keywords ***
+Add to Cart
+## DONT remove
+## Made by Catarina
+    [Arguments]    ${cartAdd}
+    Sleep    1s
+    Run Keyword and Ignore Error    Scroll Element Into View    ${cartAdd}
+    Sleep    1s
+    Click Element    ${cartAdd}
 
 *** Test Cases ***
 Open Webpage
@@ -108,14 +117,6 @@ Test If Possible to Add Items to Cart
     Close Browser
     # End of task 5
 
-
-*** Keywords ***
-Add to Cart
-    [Arguments]    ${cartAdd}
-    Sleep    1s
-    Run Keyword and Ignore Error    Scroll Element Into View    ${cartAdd}
-    Sleep    1s
-    Click Element    ${cartAdd}
 
 #6. Search "Odyssey OLED G8" and click into it and add it into the shopping cart (Roy)
     #
