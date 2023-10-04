@@ -124,6 +124,8 @@ Add to Cart
     Sleep    1s
     Click Element    ${cartAdd}
 
+
+
 #6. Search "Odyssey OLED G8" and click into it and add it into the shopping cart (Roy)
     #
     #
@@ -158,6 +160,9 @@ Add to Cart
     #
     #
     #
+
+
+
 
 #10. Choose "Ennakkomaksu" and click "SEURAAVA>>", also verify the information we filled out in the form are correct (Edem)
     #
