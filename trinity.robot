@@ -131,6 +131,8 @@ Search "Odyssey OLED G8" and add it into the shopping cart (Roy)
     
     #Adding the product into the shopping cart
     Click Element    xpath:/html/body/main/div[2]/div/div[2]/div[5]/div/div/product-box/div[2]/div[3]/addto-cart-wrapper/div/a
+
+    Close Browser
 #End of task 6
 
 
