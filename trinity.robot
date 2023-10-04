@@ -1,5 +1,6 @@
 *** Comments ***
-# Group Members
+# Group Members:
+
 # Edem Quashigah
 # Roy Liu
 # Catarina Kaucher
@@ -24,6 +25,8 @@ Open Webpage
 
     Maximize Browser Window
 
+
+
 # Edem (Task 1)
 Landing Page
     # Do all product categories have a "landing page"
@@ -47,8 +50,9 @@ Landing Page
     Close Browser
     # End of task 1
 
-# Task 2 - Marika Duhhanina
 
+
+# Task 2 - Marika Duhhanina
 Search feature from main page
     Open Browser    https://www.jimms.fi/    ${browser}
     Maximize Browser Window
@@ -69,8 +73,9 @@ Search feature from main page
     Close Browser
 # End of Task 2 - Marika Duhhanina
 
-# Roy (Tasks 3 & 4)
 
+
+# Roy (Tasks 3 & 4)
 Find the button "Lisää koriin" from a product page and take a screenshot of the button's element
     Open Browser
     ...    https://www.jimms.fi/fi/Product/Show/187202/ls34bg850suxen/samsung-34-odyssey-oled-g8-kaareva-175hz-oc-wqhd-pelimonitori-tarjous-norm-1249-00
@@ -88,8 +93,9 @@ Find the button "Lisää koriin" from a product page and take a screenshot of th
     Close Browser
     # End of tasks 3 & 4
 
-# Catarina (Task 5)
 
+
+# Catarina (Task 5)
 Test If Possible to Add Items to Cart
     Open Browser    ${website}    Chrome    options=add_experimental_option("detach", True)
     Maximize Browser Window
@@ -107,6 +113,7 @@ Test If Possible to Add Items to Cart
 
     Close Browser
     # End of task 5
+
 
 
 *** Keywords ***
@@ -137,7 +144,7 @@ Add to Cart
 
 
 
-
+# Task 8 - Marika Duhhanina
 #8. Click "SIIRRY KASSALLE", fill out the form and click "SEURAAVA>>" (Marika)
     #
     #
