@@ -19,7 +19,7 @@ ${searchElement}=       PS5
 
 *** Keywords ***
 Add to Cart
-## DONT remove
+## DON'T remove nor move!
 ## Made by Catarina
     [Arguments]    ${cartAdd}
     Sleep    1s
@@ -33,7 +33,8 @@ Open Webpage
 
     Maximize Browser Window
 
-# Edem (Task 1)
+# Task 1 - Edem Quashigah
+
 Landing Page
     # Do all product categories have a "landing page"
     # Get count of elements in the vertical path
@@ -54,7 +55,7 @@ Landing Page
     END
     # close browser.
     Close Browser
-    # End of task 1
+# End of task 1
 
 # Task 2 - Marika Duhhanina
 
@@ -78,14 +79,14 @@ Search feature from main page
     Close Browser
 # End of Task 2 - Marika Duhhanina
 
-# Roy (Tasks 3 & 4)
+# Tasks 3 & 4 - Roy Liu
 
 Find the button "Lisää koriin" from a product page and take a screenshot of the button's element
     Open Browser
     ...    https://www.jimms.fi/fi/Product/Show/187202/ls34bg850suxen/samsung-34-odyssey-oled-g8-kaareva-175hz-oc-wqhd-pelimonitori-tarjous-norm-1249-00
     ...    Chrome
     ...    options=add_experimental_option("detach", True)
-    # Maximize Browser Window
+    Maximize Browser Window
 
     Page Should Contain Link
     ...    xpath:/html/body/main/div[1]/div[2]/div[1]/jim-product-cta-box/div/div[4]/div[2]/addto-cart-wrapper/div/a
@@ -95,9 +96,9 @@ Find the button "Lisää koriin" from a product page and take a screenshot of th
     ...    xpath:/html/body/main/div[1]/div[2]/div[1]/jim-product-cta-box/div/div[4]/div[2]/addto-cart-wrapper/div/a/span
 
     Close Browser
-    # End of tasks 3 & 4
+# End of tasks 3 & 4
 
-# Catarina (Task 5)
+# Task 5 - Catarina Kaucher
 
 Test If Possible to Add Items to Cart
     Open Browser    ${website}    Chrome    options=add_experimental_option("detach", True)
@@ -115,16 +116,22 @@ Test If Possible to Add Items to Cart
     ...    xpath://*[@id="jim-main"]/div[8]/div/div/div[2]/div/div[2]/product-box/div[2]/div[3]/addto-cart-wrapper/div/a
 
     Close Browser
-    # End of task 5
+# End of task 5
 
 
-#6. Search "Odyssey OLED G8" and click into it and add it into the shopping cart (Roy)
-    #
-    #
-    #
-    #
-    #
+    # Roy Liu - Task 6
+Search "Odyssey OLED G8" and add it into the shopping cart (Roy)
+    Open Browser    ${website}    Chrome    options=add_experimental_option("detach", True)
+    
+    Maximize Browser Window
 
+    #Searching the product
+    Click Element    name:q 
+    Input Text    name:q    Odyssey OLED G8
+    Press Keys    name:q    ENTER
+    
+    #Adding the product into the shopping cart
+    Click Element    xpath:/html/body/main/div[2]/div/div[2]/div[5]/div/div/product-box/div[2]/div[3]/addto-cart-wrapper/div/a
 
 
 
