@@ -118,13 +118,20 @@ Test If Possible to Add Items to Cart
     # End of task 5
 
 
-#6. Search "Odyssey OLED G8" and click into it and add it into the shopping cart (Roy)
-    #
-    #
-    #
-    #
-    #
+    # Roy Liu - Task 6
+Search "Odyssey OLED G8" and add it into the shopping cart (Roy)
+    Open Browser    ${website}    Chrome    options=add_experimental_option("detach", True)
+    
+    Maximize Browser Window
 
+    #Searching the product
+    Click Element    name:q 
+    Input Text    name:q    Odyssey OLED G8
+    Press Keys    name:q    ENTER
+    
+    #Adding the product into the shopping cart
+    Click Element    xpath:/html/body/main/div[2]/div/div[2]/div[5]/div/div/product-box/div[2]/div[3]/addto-cart-wrapper/div/a
+#End of task 6
 
 
 
