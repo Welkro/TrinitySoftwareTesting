@@ -14,7 +14,11 @@ Library     XML
 
 *** Variables ***
 ${website}              http://jimms.fi
-${browser}=             Firefox
+
+# Set which browser to use
+#${browser}=             Firefox
+${browser}=             Chrome
+
 ${searchElement}=       PS5
 
 *** Keywords ***
@@ -29,7 +33,7 @@ Add to Cart
 
 *** Test Cases ***
 Open Webpage
-    Open Browser    ${website}    Chrome    options=add_experimental_option("detach", True)
+    Open Browser    ${website}    ${browser}    options=add_experimental_option("detach", True)
 
     Maximize Browser Window
 
@@ -83,7 +87,7 @@ Search feature from main page
 Find the button "Lisää koriin" from a product page and take a screenshot of the button's element
     Open Browser
     ...    https://www.jimms.fi/fi/Product/Show/187202/ls34bg850suxen/samsung-34-odyssey-oled-g8-kaareva-175hz-oc-wqhd-pelimonitori-tarjous-norm-1249-00
-    ...    Chrome
+    ...    ${browser}
     ...    options=add_experimental_option("detach", True)
     # Maximize Browser Window
 
@@ -100,7 +104,7 @@ Find the button "Lisää koriin" from a product page and take a screenshot of th
 # Catarina (Task 5)
 
 Test If Possible to Add Items to Cart
-    Open Browser    ${website}    Chrome    options=add_experimental_option("detach", True)
+    Open Browser    ${website}    ${browser}    options=add_experimental_option("detach", True)
     Maximize Browser Window
     # Add 5 items to cart
     Add to Cart
@@ -120,7 +124,7 @@ Test If Possible to Add Items to Cart
 
     # Roy Liu - Task 6
 Search "Odyssey OLED G8" and add it into the shopping cart (Roy)
-    Open Browser    ${website}    Chrome    options=add_experimental_option("detach", True)
+    Open Browser    ${website}    ${browser}    options=add_experimental_option("detach", True)
     
     Maximize Browser Window
 
@@ -135,12 +139,42 @@ Search "Odyssey OLED G8" and add it into the shopping cart (Roy)
 #End of task 6
 
 
+# Task 7
+Check if the product is in the shopping cart and make a screenshot of the cart icon 
+# #(Catarina)
+    Open Browser    ${website}    ${browser}    options=add_experimental_option("detach", True)
+    Maximize Browser Window
+    
+    
+    # Add item to cart
+    Add to Cart    xpath://*[@id="fp-suggestions-carousel1-slide02"]/div/product-box/div[2]/div[3]/addto-cart-wrapper/div/a
 
-#7. Check if the product is in the shopping cart and make a screenshot of the cart icon (Catarina)
-    #
-    #
-    #
-    #
+    # Screenshot of the cart icon
+    #Capture Element Screenshot    xpath://*[@id="headercartcontainer"]/a
+    
+    Sleep    1s
+    # Click on the cart
+    Click Element    xpath://*[@id="headercartcontainer"]/a
+
+    # Check if we are at the cart page
+    Page Should Contain    Ostoskori
+
+    # Verifying that the cart has an item
+    Element Should Be Visible    xpath://*[@id="jim-main"]/div/div/div/div[1]/article/div[1]/div[2]/div/div[1]/div/a/span
+
+    # Get the total
+    ${total}=    Get Text    xpath://*[@id="jim-main"]/div/div/div/div[2]/div/div[1]/ul/li[5]/span
+
+    #Remove unnecessary characters and spaces
+    #STrip all spaces and convert comma into a dot
+    ${total}=    Remove String    ${total}    €
+    ${total}=    Set Variable    ${total.replace(" ", "").replace(",", "")}
+
+    ${total}=    Convert To Integer    ${total}
+
+    # Verify that the cart is not empty also by checking that the  total is above 0
+    Should Be True     ${total} > 0
+
 
 
 
