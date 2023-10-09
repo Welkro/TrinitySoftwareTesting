@@ -1,5 +1,6 @@
 *** Comments ***
-# Group Members
+# Group Members:
+
 # Edem Quashigah
 # Roy Liu
 # Catarina Kaucher
@@ -37,6 +38,8 @@ Open Webpage
 
     Maximize Browser Window
 
+
+
 # Edem (Task 1)
 Landing Page
     # Do all product categories have a "landing page"
@@ -60,8 +63,9 @@ Landing Page
     Close Browser
     # End of task 1
 
-# Task 2 - Marika Duhhanina
 
+
+# Task 2 - Marika Duhhanina
 Search feature from main page
     Open Browser    https://www.jimms.fi/    ${browser}
     Maximize Browser Window
@@ -82,8 +86,9 @@ Search feature from main page
     Close Browser
 # End of Task 2 - Marika Duhhanina
 
-# Roy (Tasks 3 & 4)
 
+
+# Roy (Tasks 3 & 4)
 Find the button "Lisää koriin" from a product page and take a screenshot of the button's element
     Open Browser
     ...    https://www.jimms.fi/fi/Product/Show/187202/ls34bg850suxen/samsung-34-odyssey-oled-g8-kaareva-175hz-oc-wqhd-pelimonitori-tarjous-norm-1249-00
@@ -101,12 +106,13 @@ Find the button "Lisää koriin" from a product page and take a screenshot of th
     Close Browser
     # End of tasks 3 & 4
 
-# Catarina (Task 5)
 
+
+# Catarina (Task 5)
 Test If Possible to Add Items to Cart
     Open Browser    ${website}    ${browser}    options=add_experimental_option("detach", True)
     Maximize Browser Window
-    # Add 5 items to cart
+# Add 5 items to cart
     Add to Cart
     ...    xpath://*[@id="fp-suggestions-carousel1-slide02"]/div/product-box/div[2]/div[3]/addto-cart-wrapper/div/a
     Add to Cart
@@ -119,10 +125,10 @@ Test If Possible to Add Items to Cart
     ...    xpath://*[@id="jim-main"]/div[8]/div/div/div[2]/div/div[2]/product-box/div[2]/div[3]/addto-cart-wrapper/div/a
 
     Close Browser
-    # End of task 5
+# End of task 5
 
 
-    # Roy Liu - Task 6
+# Roy Liu - Task 6
 Search "Odyssey OLED G8" and add it into the shopping cart (Roy)
     Open Browser    ${website}    ${browser}    options=add_experimental_option("detach", True)
     
@@ -135,7 +141,6 @@ Search "Odyssey OLED G8" and add it into the shopping cart (Roy)
     
     #Adding the product into the shopping cart
     Click Element    xpath:/html/body/main/div[2]/div/div[2]/div[5]/div/div/product-box/div[2]/div[3]/addto-cart-wrapper/div/a
-
 #End of task 6
 
 
@@ -173,28 +178,65 @@ Check if the product is in the shopping cart and make a screenshot of the cart i
     ${total}=    Convert To Integer    ${total}
 
     # Verify that the cart is not empty also by checking that the  total is above 0
-    Should Be True     ${total} > 0
+    Should Be True     ${total} > 0    
+#End of task 7
 
 
+# Task 8 - Marika Duhhanina
+Click "SIIRRY KASSALLE", fill out the form and click "SEURAAVA>>"
+    ${FirstName}=    Set Variable    Malong
+    ${LastName}=    Set Variable    Dig
+    ${Address}=    Set Variable    Ottostraße 63
+    ${PostalCode}=    Set Variable    85521
+    ${City}=    Set Variable    Ottobrunn
+    ${EmailAddress}=    Set Variable    malong.dig1987@gmail.com
+    ${Phone}=    Set Variable    +358 4573987264
 
+    Click Element    xpath:/html/body/main/div/div/div/div[2]/div/div[3]/a
+
+    # Select Radio Button    selectedTab    value
+    # The radio button doesn't have a value, so I had to use "Click Element" for this
+    Click Element    xpath://*[@id="anonymous-tab-input"]
+
+    Click Element    xpath:/html/body/main/div/div/div/div[2]/div[4]/div/div/form/input[3]
+
+    Click Element    name:FirstName
+    Input Text    name:FirstName    ${FirstName}
+
+    Click Element    name:LastName
+    Input Text    name:LastName    ${LastName}
+
+    Click Element    name:Address
+    Input Text    name:Address    ${Address}
+
+    Click Element    name:PostalCode
+    Input Text    name:PostalCode    ${PostalCode}
+
+    Click Element    name:City
+    Input Text    name:City    ${City}
+
+    Click Element    name:EmailAddress
+    Input Text    name:EmailAddress    ${EmailAddress}
+
+    Click Element    name:Phone
+    Input Text    name:Phone    ${Phone}
+
+    Select Checkbox    xpath://*[@id="GDPR"]
+
+    Click Element    xpath:/html/body/main/div/div[2]/div/div[1]/form/div/input
+# End of task 8
+
+
+# Task 9 - Marika Duhhanina
+Choose "Nouto Turku" from the list and click "SEURAAVA>>"
+    Wait Until Page Contains    Nouto Turku
+    Page Should Contain    Nouto Turku
+
+    Select Radio Button    DeliveryMethodID    JTU2   
     
-    #End of task 7
+    Click Element    xpath:/html/body/main/div/div[2]/div/div[1]/div/div/div[1]/div/form/input[2]
+# End of task 9
 
-
-
-#8. Click "SIIRRY KASSALLE", fill out the form and click "SEURAAVA>>" (Marika)
-    #
-    #
-    #
-    #
-
-
-
-#9. Choose "Nouto Turku" from the list and click "SEURAAVA>>"  (Marika)
-    #
-    #
-    #
-    #
 
 #10. Choose "Ennakkomaksu" and click "SEURAAVA>>", also verify the information we filled out in the form are correct (Edem)
     #
