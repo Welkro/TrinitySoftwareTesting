@@ -150,7 +150,7 @@ Check if the product is in the shopping cart and make a screenshot of the cart i
     Add to Cart    xpath://*[@id="fp-suggestions-carousel1-slide02"]/div/product-box/div[2]/div[3]/addto-cart-wrapper/div/a
 
     # Screenshot of the cart icon
-    #Capture Element Screenshot    xpath://*[@id="headercartcontainer"]/a
+    Capture Element Screenshot    xpath://*[@id="headercartcontainer"]/a
     
     Sleep    1s
     # Click on the cart
@@ -177,7 +177,8 @@ Check if the product is in the shopping cart and make a screenshot of the cart i
 
 
 
-
+    
+    #End of task 7
 
 
 
