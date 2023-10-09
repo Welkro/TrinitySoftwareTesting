@@ -112,7 +112,7 @@ Find the button "Lisää koriin" from a product page and take a screenshot of th
 Test If Possible to Add Items to Cart
     Open Browser    ${website}    ${browser}    options=add_experimental_option("detach", True)
     Maximize Browser Window
-    # Add 5 items to cart
+# Add 5 items to cart
     Add to Cart
     ...    xpath://*[@id="fp-suggestions-carousel1-slide02"]/div/product-box/div[2]/div[3]/addto-cart-wrapper/div/a
     Add to Cart
@@ -125,10 +125,10 @@ Test If Possible to Add Items to Cart
     ...    xpath://*[@id="jim-main"]/div[8]/div/div/div[2]/div/div[2]/product-box/div[2]/div[3]/addto-cart-wrapper/div/a
 
     Close Browser
-    # End of task 5
+# End of task 5
 
 
-    # Roy Liu - Task 6
+# Roy Liu - Task 6
 Search "Odyssey OLED G8" and add it into the shopping cart (Roy)
     Open Browser    ${website}    ${browser}    options=add_experimental_option("detach", True)
     
@@ -179,25 +179,63 @@ Check if the product is in the shopping cart and make a screenshot of the cart i
 
     # Verify that the cart is not empty also by checking that the  total is above 0
     Should Be True     ${total} > 0    
-    #End of task 7
+#End of task 7
 
 
 # Task 8 - Marika Duhhanina
-#8. Click "SIIRRY KASSALLE", fill out the form and click "SEURAAVA>>" (Marika)
-    #
-    #
-    #
-    #
+Click "SIIRRY KASSALLE", fill out the form and click "SEURAAVA>>"
+    ${FirstName}=    Set Variable    Malong
+    ${LastName}=    Set Variable    Dig
+    ${Address}=    Set Variable    Ottostraße 63
+    ${PostalCode}=    Set Variable    85521
+    ${City}=    Set Variable    Ottobrunn
+    ${EmailAddress}=    Set Variable    malong.dig1987@gmail.com
+    ${Phone}=    Set Variable    +358 4573987264
+
+    Click Element    xpath:/html/body/main/div/div/div/div[2]/div/div[3]/a
+
+    # Select Radio Button    selectedTab    value
+    # The radio button doesn't have a value, so I had to use "Click Element" for this
+    Click Element    xpath://*[@id="anonymous-tab-input"]
+
+    Click Element    xpath:/html/body/main/div/div/div/div[2]/div[4]/div/div/form/input[3]
+
+    Click Element    name:FirstName
+    Input Text    name:FirstName    ${FirstName}
+
+    Click Element    name:LastName
+    Input Text    name:LastName    ${LastName}
+
+    Click Element    name:Address
+    Input Text    name:Address    ${Address}
+
+    Click Element    name:PostalCode
+    Input Text    name:PostalCode    ${PostalCode}
+
+    Click Element    name:City
+    Input Text    name:City    ${City}
+
+    Click Element    name:EmailAddress
+    Input Text    name:EmailAddress    ${EmailAddress}
+
+    Click Element    name:Phone
+    Input Text    name:Phone    ${Phone}
+
+    Select Checkbox    xpath://*[@id="GDPR"]
+
+    Click Element    xpath:/html/body/main/div/div[2]/div/div[1]/form/div/input
+# End of task 8
 
 
+# Task 9 - Marika Duhhanina
+Choose "Nouto Turku" from the list and click "SEURAAVA>>"
+    Wait Until Page Contains    Nouto Turku
+    Page Should Contain    Nouto Turku
 
-#9. Choose "Nouto Turku" from the list and click "SEURAAVA>>"  (Marika)
-    #
-    #
-    #
-    #
-
-
+    Select Radio Button    DeliveryMethodID    JTU2   
+    
+    Click Element    xpath:/html/body/main/div/div[2]/div/div[1]/div/div/div[1]/div/form/input[2]
+# End of task 9
 
 
 #10. Choose "Ennakkomaksu" and click "SEURAAVA>>", also verify the information we filled out in the form are correct (Edem)
