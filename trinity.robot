@@ -21,6 +21,14 @@ ${website}              http://jimms.fi
 ${browser}=             Chrome
 
 ${searchElement}=       PS5
+# Task 8 variables (To be referred in Task 10)
+${FirstName}    Malong
+${LastName}    Dig
+${Address}    Ottostraße 63
+${PostalCode}    85521
+${City}    Ottobrunn
+${EmailAddress}    malong.dig1987@gmail.com
+${Phone}    +358 4573987264
 
 *** Keywords ***
 Add to Cart
@@ -184,13 +192,6 @@ Check if the product is in the shopping cart and make a screenshot of the cart i
 
 # Task 8 - Marika Duhhanina
 Click "SIIRRY KASSALLE", fill out the form and click "SEURAAVA>>"
-    ${FirstName}=    Set Variable    Malong
-    ${LastName}=    Set Variable    Dig
-    ${Address}=    Set Variable    Ottostraße 63
-    ${PostalCode}=    Set Variable    85521
-    ${City}=    Set Variable    Ottobrunn
-    ${EmailAddress}=    Set Variable    malong.dig1987@gmail.com
-    ${Phone}=    Set Variable    +358 4573987264
 
     Click Element    xpath:/html/body/main/div/div/div/div[2]/div/div[3]/a
 
@@ -238,9 +239,27 @@ Choose "Nouto Turku" from the list and click "SEURAAVA>>"
 # End of task 9
 
 
-#10. Choose "Ennakkomaksu" and click "SEURAAVA>>", also verify the information we filled out in the form are correct (Edem)
-    #
-    #
-    #
-    #
-    
+# Task 10 - Edem Quashigah 
+Choose "Ennakkomaksu" and click "SEURAAVA>>", also verify the information filled out in the form are correct (Edem)
+    # Click 'Ennakkomaksu'
+    Click Element    xpath:/html/body/main/div/div[2]/div/div[1]/div/div/div[2]/div/form/ul/li[3]/div/label/div[2]
+    # Click Seuraava
+    Click Element    xpath:/html/body/main/div/div[2]/div/div[1]/div/div/div[2]/div/form/input[2]
+    # Set variables to be confirmed
+    ${FirstName_confirm}=    Get Text    xpath:/html/body/main/div/div[2]/div/div[2]/div[2]/div[1]/div[2]/div[1]
+    ${LastName_confirm}=    Get Text    xpath:/html/body/main/div/div[2]/div/div[2]/div[2]/div[1]/div[2]/div[1]
+    ${Address_confirm}=    Get Text    xpath:/html/body/main/div/div[2]/div/div[2]/div[2]/div[1]/div[2]/div[2]
+    ${PostalCode_confirm}=    Get Text    xpath:/html/body/main/div/div[2]/div/div[2]/div[2]/div[1]/div[2]/div[3]
+    ${City_confirm}=    Get Text    xpath:/html/body/main/div/div[2]/div/div[2]/div[2]/div[1]/div[2]/div[3]
+    ${EmailAddress_confirm}=    Get Text    xpath:/html/body/main/div/div[2]/div/div[2]/div[2]/div[1]/div[2]/div[5]
+    ${Phone_confirm}=    Get Text    xpath:/html/body/main/div/div[2]/div/div[2]/div[2]/div[1]/div[2]/div[4]
+
+    Run Keyword And Continue On Failure    Should Contain    ${FirstName_confirm}    ${FirstName}
+    Run Keyword And Continue On Failure    Should Contain    ${FirstName_confirm}    ${LastName}
+
+    Run Keyword And Continue On Failure    Should Be Equal    ${Address_confirm}    ${Address}
+    Run Keyword And Continue On Failure    Should Contain    ${PostalCode_confirm}    ${PostalCode}
+
+    Run Keyword And Continue On Failure    Should Contain    ${City_confirm}    ${City}
+    Run Keyword And Continue On Failure    Should Be Equal    ${EmailAddress_confirm}    ${EmailAddress}
+    Run Keyword And Continue On Failure    Should Be Equal   ${Phone_confirm}    ${Phone}
