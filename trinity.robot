@@ -48,7 +48,7 @@ Open Webpage
 
 
 
-# Edem (Task 1)
+# Task 1 - Edem Quashigah
 Landing Page
     # Do all product categories have a "landing page"
     # Get count of elements in the vertical path
@@ -96,7 +96,7 @@ Search feature from main page
 
 
 
-# Roy (Tasks 3 & 4)
+# Tasks 3 & 4 - Roy Liu
 Find the button "Lisää koriin" from a product page and take a screenshot of the button's element
     Open Browser
     ...    https://www.jimms.fi/fi/Product/Show/187202/ls34bg850suxen/samsung-34-odyssey-oled-g8-kaareva-175hz-oc-wqhd-pelimonitori-tarjous-norm-1249-00
@@ -117,7 +117,7 @@ Find the button "Lisää koriin" from a product page and take a screenshot of th
 
 
 
-# Catarina (Task 5)
+# Task 5 - Catarina Kaucher
 Test If Possible to Add Items to Cart
     Open Browser    ${website}    ${browser}    options=add_experimental_option("detach", True)
     Maximize Browser Window
@@ -137,7 +137,7 @@ Test If Possible to Add Items to Cart
 # End of task 5
 
 
-# Roy Liu - Task 6
+# Task 6 - Roy Liu
 Search "Odyssey OLED G8" and add it into the shopping cart (Roy)
     Open Browser    ${website}    ${browser}    options=add_experimental_option("detach", True)
     
@@ -150,19 +150,13 @@ Search "Odyssey OLED G8" and add it into the shopping cart (Roy)
 
     Sleep    1s
     #Adding the product into the shopping cart
-    Click Element    xpath:/html/body/main/div[2]/div/div[2]/div[5]/div/div/product-box/div[2]/div[3]/addto-cart-wrapper/div/a
+    Element Should Be Visible    xpath:/html/body/main/div[2]/div/div[2]/div[5]/div/div/product-box/div[2]/div[3]/addto-cart-wrapper/div/a
+    Add to Cart    xpath:/html/body/main/div[2]/div/div[2]/div[5]/div/div/product-box/div[2]/div[3]/addto-cart-wrapper/div/a
 #End of task 6
 
 
-# Task 7
+# Task 7 - Catarina Kaucher
 Check if the product is in the shopping cart and make a screenshot of the cart icon 
-# #(Catarina)
-  #  Open Browser    ${website}    ${browser}    options=add_experimental_option("detach", True)
-  #  Maximize Browser Window
-    
-    
-    # Add item to cart
-  #  Add to Cart    xpath://*[@id="fp-suggestions-carousel1-slide02"]/div/product-box/div[2]/div[3]/addto-cart-wrapper/div/a
 
     # Screenshot of the cart icon
     Capture Element Screenshot    xpath://*[@id="headercartcontainer"]/a

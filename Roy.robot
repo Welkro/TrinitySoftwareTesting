@@ -1,3 +1,12 @@
+*** Comments ***
+# Group Members:
+
+# Edem Quashigah
+# Roy Liu
+# Catarina Kaucher
+# Marika Duhhanina
+
+
 *** Settings ***
 Library     SeleniumLibrary
 Library     String
@@ -32,7 +41,7 @@ Add to Cart
     Click Element    ${cartAdd}
 
 *** Test Cases ***
-# Roy Liu - Task 6
+# Task 6 - Roy Liu
 Search "Odyssey OLED G8" and add it into the shopping cart (Roy)
     Open Browser    ${website}    ${browser}    options=add_experimental_option("detach", True)
     
@@ -45,19 +54,13 @@ Search "Odyssey OLED G8" and add it into the shopping cart (Roy)
 
     Sleep    1s
     #Adding the product into the shopping cart
-    Click Element    xpath:/html/body/main/div[2]/div/div[2]/div[5]/div/div/product-box/div[2]/div[3]/addto-cart-wrapper/div/a
+    Element Should Be Visible    xpath:/html/body/main/div[2]/div/div[2]/div[5]/div/div/product-box/div[2]/div[3]/addto-cart-wrapper/div/a
+    Add to Cart    xpath:/html/body/main/div[2]/div/div[2]/div[5]/div/div/product-box/div[2]/div[3]/addto-cart-wrapper/div/a
 #End of task 6
 
 
-# Task 7
+# Task 7 - Catarina Kaucher
 Check if the product is in the shopping cart and make a screenshot of the cart icon 
-# #(Catarina)
-  #  Open Browser    ${website}    ${browser}    options=add_experimental_option("detach", True)
-  #  Maximize Browser Window
-    
-    
-    # Add item to cart
-  #  Add to Cart    xpath://*[@id="fp-suggestions-carousel1-slide02"]/div/product-box/div[2]/div[3]/addto-cart-wrapper/div/a
 
     # Screenshot of the cart icon
     Capture Element Screenshot    xpath://*[@id="headercartcontainer"]/a
@@ -120,8 +123,6 @@ Click "SIIRRY KASSALLE", fill out the form and click "SEURAAVA>>"
     Input Text    name:Phone    ${Phone}
 
     Select Checkbox    xpath://*[@id="GDPR"]
-
-    Sleep    1s
 
     Click Element    xpath:/html/body/main/div/div[2]/div/div[1]/form/div/input
 # End of task 8
