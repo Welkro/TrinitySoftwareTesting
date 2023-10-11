@@ -220,9 +220,14 @@ Click "SIIRRY KASSALLE", fill out the form and click "SEURAAVA>>"
 
     Select Checkbox    xpath://*[@id="GDPR"]
 
-    Sleep    1s
+    Execute JavaScript    window.scrollTo(0, 400)    #Scrolling down the page
+    Wait Until Element Is Visible    xpath:/html/body/main/div/div[2]/div/div[1]/form/div/input
 
-    Click Element    xpath:/html/body/main/div/div[2]/div/div[1]/form/div/input
+    Sleep    1s
+    Double Click Element    xpath:/html/body/main/div/div[2]/div/div[1]/form/div/input
+
+                    
+
 # End of task 8
 
 
@@ -231,9 +236,12 @@ Choose "Nouto Turku" from the list and click "SEURAAVA>>"
     Wait Until Page Contains    Nouto Turku
     Page Should Contain    Nouto Turku
 
+    Execute JavaScript    window.scrollTo(0, 400)    #Scrolling down the page
+    Sleep    1s
     Select Radio Button    DeliveryMethodID    JTU2   
     
-    Click Element    xpath:/html/body/main/div/div[2]/div/div[1]/div/div/div[1]/div/form/input[2]
+    Click Element    xpath:/html/body/main/div/div[2]/div/div[1]/div/div/div[1]/div/form/ul/li[6]/div/input
+    Double Click Element    xpath:/html/body/main/div/div[2]/div/div[1]/div/div/div[1]/div/form/input[2]
 # End of task 9
 
 
@@ -261,3 +269,4 @@ Choose "Ennakkomaksu" and click "SEURAAVA>>", also verify the information filled
     Run Keyword And Continue On Failure    Should Contain    ${City_confirm}    ${City}
     Run Keyword And Continue On Failure    Should Be Equal    ${EmailAddress_confirm}    ${EmailAddress}
     Run Keyword And Continue On Failure    Should Be Equal   ${Phone_confirm}    ${Phone}
+
